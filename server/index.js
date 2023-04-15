@@ -16,13 +16,12 @@ app.post('/createClothe', (req, res) => {
     let marque = req.body.marque;
     let deOutfitNo = req.body.deOutfitNo;
     let img = req.body.img;
-    let vetements = JSON.parse(fs.readFileSync("../vetements.json", "utf-8"));
+    let vetements = JSON.parse(fs.readFileSync("../public/vetements.json", "utf-8"));
     let id = Math.max(...vetements.map(e => e.id))+1;
-    vetements.push({id:id,nom:nom, type:type, couleur:couleur, saison:saison, marque:marque, deOutfitNo:deOutfitNo, img:img});
+    vetements.push({id:id,nom:nom, type:type, couleur:couleur, saison:saison, marque:marque, deOutfitNo:deOutfitNo, img:img, inBox:null});
     fs.writeFileSync("../vetements.json", JSON.stringify(vetements));
     res.status(200).send(vetements);
 });
-
 
 app.listen(8000 || process.env.PORT, () => {
     console.log(`Listening on http://localhost:${8000 || process.env.PORT}`);

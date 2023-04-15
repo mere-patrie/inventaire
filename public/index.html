@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>$("head").append(`<link rel="stylesheet" href="${window.location.href+"src/output.css"}">`);</script>
+    <title>Inventaire</title>
+</head>
+<body>
+
+    <div class="flex flex-col sm:flex-row align-start flex-nowrap min-h-screen pb-16 sm:pb-0">
+        <nav class="sm:flex-col p-2 flex-row items-center sm:justify-start justify-between sm:w-16 w-screen sm:h-screen h-16 overflow-hidden text-gray-700 bg-gray-100 rounded lg:w-40 flex fixed bottom-0 left-0 z-50">
+            <button class="flex items-center justify-center lg:justify-start w-12 h-12 rounded hover:bg-gray-300 lg:w-full lg:px-3" id="homeButton"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/></svg><span class="ml-2 text-sm font-medium lg:block hidden">Accueil</span></button>
+            <button class="flex items-center justify-center lg:justify-start w-12 h-12 rounded hover:bg-gray-300 lg:w-full lg:px-3" id="scanButton"><svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/></svg><span class="ml-2 text-sm font-medium lg:block hidden">Scan</span></button>
+        
+            <button class="flex items-center justify-center lg:justify-start w-12 h-12 rounded hover:bg-gray-300 lg:w-full lg:px-3 cursor-pointer" onclick="$('#searchModal').fadeIn();"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg><span class="ml-2 text-sm font-medium lg:block hidden">Chercher</span></button>
+
+            <button class="flex items-center justify-center lg:justify-start w-12 h-12 rounded hover:bg-gray-300 lg:w-full lg:px-3 cursor-pointer" onclick="$('#newClotheModal').fadeIn();"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg><span class="ml-2 text-sm font-medium lg:block hidden">Nouveau vêtement</span></button>
+        </nav>
+
+        <div id="app" class="sm:ml-16 lg:ml-40 w-full"></div>
+    </div>
+
+
+    <!-- Search modal -->
+    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="searchModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-gray-600" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full"><h3 class="text-base font-semibold leading-6 text-black mb-2">Rechercher</h3><input type="search" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:border-indigo-600 focus:outline-none" placeholder="Search for clothes" required name="search" id="searchInput"></div></div><div class="py-3 sm:flex sm:flex-row-reverse"><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#searchModal').fadeOut();">Chercher</button></div></div></div></div></div></div>
+    <!-- Cloth/Outfit info modal -->
+    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="clothInfoModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div id="clothInfoModalBody" class="flex flex-col gap-2"></div><button type="button" class="mt-2 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#clothInfoModal').fadeOut();">Fermer</button></div></div></div></div></div>
+    <!-- Scan modal -->
+    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="scanModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative h-full transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full flex flex-col justify-between"><canvas id="canvas" class="rounded-t-lg w-full h-full"></canvas><div class="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6"><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto bg-white" id="stopScan">Fermer</button></div></div></div></div></div>
+    <!-- New clothe modal -->
+    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="newClotheModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-gray-600" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full"><h3 class="text-base font-semibold leading-6 text-black mb-2">Nouveau vêtement</h3><form class="flex flex-col gap-2"><div class="relative"><input type="text" id="newClotheNom" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheNom" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Nom</label></div><select id="newClotheType" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 focus-visible:outline-none"><option selected disabled>Type</option><option value="pull">Pull</option><option value="t-shirt">T-shirt</option><option value="jean">Jean</option><option value="pantalon">Pantalon</option></select><select id="newClotheCouleur" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 focus-visible:outline-none"><option selected disabled>Couleur</option><option value="Blanc">Blanc</option><option value="bleu">Bleu</option><option value="beige">Beige</option><option value="noir">Noir</option><option value="gris">Gris</option><option value="jaune">Jaune</option><option value="rose">Rose</option><option value="rouge">Rouge</option><option value="vert">Vert</option><option value="violet">Violet</option></select><select id="newClotheSaison" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 focus-visible:outline-none"><option selected disabled>Saison</option><option value="printemps">Printemps</option><option value="été">Été</option><option value="automne">Automne</option><option value="hiver">Hiver</option></select><div class="relative"><input type="text" id="newClotheMarque" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheMarque" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Marque</label></div><div class="relative"><input type="text" id="newClotheFromOutfitNo" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheFromOutfitNo" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">De l'outfit</label></div><div class="relative"><input type="text" id="newClotheImg" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheImg" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Image URL</label></div></form></div></div><div class="flex py-3 sm:flex flex-col sm:flex-row-reverse gap-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="createNewClothe">Créer</button><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#newClotheModal').fadeOut();">Annuler</button></div></div></div></div></div></div>
+
+    <script>
+        // At page load
+        fetch(window.location+"vetements.json").then((response) => response.json()).then((data) => {
+            data.reverse();
+            $("#app").empty().append(`<div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-template-rows: min-content;" id="vetements"></div>`);
+            data.forEach(vetement => {$("#vetements").append(`<div data-id="${vetement.id}" data-deOutfitNo="${vetement.deOutfitNo}" data-nom="${vetement.nom}" data-couleur="${vetement.couleur}" data-saison="${vetement.saison}" data-marque="${vetement.marque}" data-type="${vetement.type}" data-inBox="${vetement.inBox}" class="border border-gray-300 rounded flex flex-col w-full cursor-pointer" onclick="clotheInfo(${vetement.id})"><img src="${vetement.img}" class="h-auto max-h-full w-full"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><p>${vetement.id}</p></div></div></div>`);});
+        });
+        // At home button click
+        $("#homeButton").click(() => {
+            fetch(window.location+"vetements.json").then((response) => response.json()).then((data) => {
+                data.reverse();
+                $("#app").empty().append(`<div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-template-rows: min-content;" id="vetements"></div>`);
+                data.forEach(vetement => {$("#vetements").append(`<div data-id="${vetement.id}" data-deOutfitNo="${vetement.deOutfitNo}" data-nom="${vetement.nom}" data-couleur="${vetement.couleur}" data-saison="${vetement.saison}" data-marque="${vetement.marque}" data-type="${vetement.type}" data-inBox="${vetement.inBox}" class="border border-gray-300 rounded flex flex-col w-full cursor-pointer" onclick="clotheInfo(${vetement.id})"><img src="${vetement.img}" class="h-auto max-h-full w-full"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><p>${vetement.id}</p></div></div></div>`);});
+            });
+        });
+
+        $("#scanButton").click(startScanning);
+        
+        $("#searchInput").keydown(() => {
+            let searchQuery = $("#searchInput").val();
+            $("#vetements").children().each(function(vetement) {
+                if($(this).attr("data-id").includes(searchQuery) || $(this).attr("data-deOutfitNo").includes(searchQuery) || $(this).attr("data-nom").includes(searchQuery) || $(this).attr("data-couleur").includes(searchQuery) || $(this).attr("data-saison").includes(searchQuery) || $(this).attr("data-marque").includes(searchQuery) || $(this).attr("data-type").includes(searchQuery) || $(this).attr("data-inBox").includes(searchQuery)) $(this).removeClass("hidden"); else $(this).addClass("hidden");
+            });
+        });
+        
+        // Scanning functions
+        let constrains = {video: {width: { ideal: screen.width }, height: { ideal: screen.height }, facingMode: { exact: "environment" }}};
+        function startScanning(){
+            navigator.mediaDevices.getUserMedia(constrains).then((stream) => {
+                let capturer = new ImageCapture(stream.getVideoTracks()[0]);
+                $("#scanModal").fadeIn();
+                step(capturer);
+                window.localStream = stream;
+                $("#stopScan").click(() => {
+                    $('#scanModal').fadeOut();
+                    localStream.getTracks().forEach( (track) => {track.stop();});                
+                });
+            });
+        }
+        function step(capturer) {
+            capturer.grabFrame().then((bitmap) => {
+                let canvas = $("#canvas")[0];
+                let ctx = canvas.getContext("2d");
+                ctx.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height, 0, 0, canvas.width, canvas.height);
+                var barcodeDetector = new BarcodeDetector();
+                barcodeDetector.detect(bitmap).then(barcodes => {
+                    if(barcodes.length > 0) {
+                        let value = barcodes[0].rawValue;
+                        if(!isNaN(value)) {if(clotheInfo(value)){localStream.getTracks().forEach((track) => {track.stop();});$('#scanModal').fadeOut();}}else if(boxInfos(value)){console.log(value);}
+                    }
+                    step(capturer);
+                }).catch((e) => {console.error(e);});
+            });
+        }
+        
+        // Modals functions
+        async function clotheInfo(id){
+            $("#clothInfoModal").fadeIn();
+            if($(`[data-id=${id}]`).length >0){
+                let data = $($(`[data-id=${id}]`)[0]);
+                let inBox = data.attr("data-inBox") == "null" ? "":`<div class="flex flex-row gap-2"><b>Dans la boite :</b><button onclick="boxInfos('${data.attr("data-inBox")}')">${data.attr("data-inBox")}</button></div>`;
+                $("#clothInfoModalBody").empty();
+                $("#clothInfoModal").fadeIn();
+                $("#clothInfoModalBody").prepend(`<div class="flex flex-col h-full"><img src="${$(`[data-id=${id}]`).children()[0].src}" class="h-auto max-h-auto w-auto"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><h1>${id}</h1></div><div class="flex flex-row gap-2"><b>De l'outfit :</b><button onclick="outfitInfo('${data.attr("data-deOutfitNo")}')">${data.attr("data-deOutfitNo")}</button></div>${inBox}<div class="flex flex-row gap-2"><b>Name :</b><h1>${data.attr("data-nom")}</h1></div><div class="flex flex-row gap-2"><b>Couleur :</b><h1>${data.attr("data-couleur")}</h1></div><div class="flex flex-row gap-2"><b>Marque :</b><h1>${data.attr("data-marque")}</h1></div><div class="flex flex-row gap-2"><b>Saison :</b><h1>${data.attr("data-saison")}</h1></div><div class="flex flex-row gap-2"><b>Type :</b><h1>${data.attr("data-type")}</h1></div></div></div>`);
+                return true;
+            }else return false;
+        }
+        function outfitInfo(id){
+            $("#clothInfoModalBody").empty();
+            $("#clothInfoModal").fadeIn();
+            $("#vetements").children().each(function() {
+                if($(this).attr("data-deOutfitNo").includes(id)) {
+                    let data = $($(this)[0]);
+                    $("#clothInfoModalBody").append(`<div class="flex flex-col h-full rounded border border-gray-300"><img src="${$(this).children()[0].src}" class="h-auto max-h-auto w-auto"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><button onclick="clotheInfo(${data.attr("data-id")})">${data.attr("data-id")}</button></div><div class="flex flex-row gap-2"><b>De l'outfit :</b><button onclick="outfitInfo('${data.attr("data-deOutfitNo")}')">${data.attr("data-deOutfitNo")}</button></div><div class="flex flex-row gap-2"><b>Name :</b><h1>${data.attr("data-nom")}</h1></div><div class="flex flex-row gap-2"><b>Couleur :</b><h1>${data.attr("data-couleur")}</h1></div><div class="flex flex-row gap-2"><b>Marque :</b><h1>${data.attr("data-marque")}</h1></div><div class="flex flex-row gap-2"><b>Saison :</b><h1>${data.attr("data-saison")}</h1></div><div class="flex flex-row gap-2"><b>Type :</b><h1>${data.attr("data-type")}</h1></div></div></div>`);
+                }
+            });
+        }
+        function boxInfos(id){
+            $("#clothInfoModalBody").empty();
+            $("#clothInfoModal").fadeIn();
+            $("#clothInfoModalBody").append(`<h1 class="text-2xl font-semibold leading-6 text-black">Vêtements dans la boite <b>${id}</b></h1>`);
+            if($(`[data-id=${id}]`).length >0){
+                $("#vetements").children().each(function() {
+                    if($(this).attr("data-inBox").includes(id)) {
+                        let data = $($(this)[0]);
+                        $("#clothInfoModalBody").append(`<div class="flex flex-col h-full rounded border border-gray-300"><img src="${$(this).children()[0].src}" class="h-auto max-h-auto w-auto"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><button onclick="clotheInfo(${data.attr("data-id")})">${data.attr("data-id")}</button></div><div class="flex flex-row gap-2"><b>De l'outfit :</b><button onclick="outfitInfo('${data.attr("data-deOutfitNo")}')">${data.attr("data-deOutfitNo")}</button></div><div class="flex flex-row gap-2"><b>Name :</b><h1>${data.attr("data-nom")}</h1></div><div class="flex flex-row gap-2"><b>Couleur :</b><h1>${data.attr("data-couleur")}</h1></div><div class="flex flex-row gap-2"><b>Marque :</b><h1>${data.attr("data-marque")}</h1></div><div class="flex flex-row gap-2"><b>Saison :</b><h1>${data.attr("data-saison")}</h1></div><div class="flex flex-row gap-2"><b>Type :</b><h1>${data.attr("data-type")}</h1></div></div></div>`);
+                    }
+                });
+                return true;
+            }else return false;
+        }
+
+        $("#createNewClothe").click(() => {
+            let nom = $("#newClotheNom").val();
+            let type = $("#newClotheType").val();
+            let couleur = $("#newClotheCouleur").val();
+            let saison = $("#newClotheSaison").val();
+            let marque = $("#newClotheMarque").val();
+            let deOutfitNo = $("#newClotheFromOutfitNo").val();
+            let img = $("#newClotheImg").val();
+            $.post("http://localhost:8000/createClothe", {nom:nom, type:type, couleur:couleur, saison:saison, marque:marque, deOutfitNo:deOutfitNo, img:img}, (data) => {
+                data.reverse();
+                let vetement = data[0];
+                $("#vetements").prepend(`<div data-id="${vetement.id}" data-deOutfitNo="${vetement.deOutfitNo}" data-nom="${vetement.nom}" data-couleur="${vetement.couleur}" data-saison="${vetement.saison}" data-marque="${vetement.marque}" data-type="${vetement.type}" class="border border-gray-300 rounded flex flex-col w-full cursor-pointer" onclick="clotheInfo(${vetement.id})"><img src="${vetement.img}" class="h-auto max-h-full w-full"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><p>${vetement.id}</p></div></div></div>`);
+                $("#newClotheModal").fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>
