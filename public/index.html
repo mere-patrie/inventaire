@@ -81,7 +81,7 @@
                 barcodeDetector.detect(bitmap).then(barcodes => {
                     if(barcodes.length > 0) {
                         let value = barcodes[0].rawValue;
-                        if(!isNaN(value)) {if(clotheInfo(value)){localStream.getTracks().forEach((track) => {track.stop();});$('#scanModal').fadeOut();}}else if(boxInfos(value)){console.log(value);}
+                        if(!isNaN(value)) {if(clotheInfo(value)){localStream.getTracks().forEach((track) => {track.stop();});$('#scanModal').fadeOut();}}else if(value.includes("box:")){boxInfos(value.split("box:").pop());$('#scanModal').fadeOut();}
                     }
                     step(capturer);
                 }).catch((e) => {console.error(e);});
@@ -133,7 +133,7 @@
             let marque = $("#newClotheMarque").val();
             let deOutfitNo = $("#newClotheFromOutfitNo").val();
             let img = $("#newClotheImg").val();
-            $.post("http://localhost:8000/createClothe", {nom:nom, type:type, couleur:couleur, saison:saison, marque:marque, deOutfitNo:deOutfitNo, img:img}, (data) => {
+            $.post(`${window.location.origin}:8000/createClothe`, {nom:nom, type:type, couleur:couleur, saison:saison, marque:marque, deOutfitNo:deOutfitNo, img:img}, (data) => {
                 data.reverse();
                 let vetement = data[0];
                 $("#vetements").prepend(`<div data-id="${vetement.id}" data-deOutfitNo="${vetement.deOutfitNo}" data-nom="${vetement.nom}" data-couleur="${vetement.couleur}" data-saison="${vetement.saison}" data-marque="${vetement.marque}" data-type="${vetement.type}" class="border border-gray-300 rounded flex flex-col w-full cursor-pointer" onclick="clotheInfo(${vetement.id})"><img src="${vetement.img}" class="h-auto max-h-full w-full"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><p>${vetement.id}</p></div></div></div>`);
