@@ -81,7 +81,16 @@
                 barcodeDetector.detect(bitmap).then(barcodes => {
                     if(barcodes.length > 0) {
                         let value = barcodes[0].rawValue;
-                        if(!isNaN(value)) {if(clotheInfo(value)){localStream.getTracks().forEach((track) => {track.stop();});$('#scanModal').fadeOut();}}else if(value.includes("box:")){boxInfos(value.split("box:").pop());$('#scanModal').fadeOut();}
+                        if(!isNaN(value)) {
+                            if(clotheInfo(value)){
+                                localStream.getTracks().forEach((track) => {track.stop();});
+                                $('#scanModal').fadeOut();
+                            }
+                        }else if(value.includes("box:")){
+                            localStream.getTracks().forEach((track) => {track.stop();});
+                            $('#scanModal').fadeOut();
+                            boxInfos(value.split("box:").pop());$('#scanModal').fadeOut();
+                        }
                     }
                     step(capturer);
                 }).catch((e) => {console.error(e);});

@@ -6,7 +6,8 @@
   "scripts": {
     "build":"npm i",
     "serve":"node index.js",
-    "create":"npm run build && npm run serve"
+    "create":"npm run build && npm run serve",
+    "nohup":"nohup npm run serve &"
   },
   "keywords": [],
   "author": "",
