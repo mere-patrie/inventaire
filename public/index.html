@@ -46,6 +46,8 @@
                 data.reverse();
                 $("#app").empty().append(`<div class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); grid-template-rows: min-content;" id="vetements"></div>`);
                 data.forEach(vetement => {$("#vetements").append(`<div data-id="${vetement.id}" data-deOutfitNo="${vetement.deOutfitNo}" data-nom="${vetement.nom}" data-couleur="${vetement.couleur}" data-saison="${vetement.saison}" data-marque="${vetement.marque}" data-type="${vetement.type}" data-inBox="${vetement.inBox}" class="border border-gray-300 rounded flex flex-col w-full cursor-pointer" onclick="clotheInfo(${vetement.id})"><img src="${vetement.img}" class="h-auto max-h-full w-full"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><p>${vetement.id}</p></div></div></div>`);});
+                let items = $("#app").children().sort(function(a, b) {let vA = $(a).attr("data-id");let vB = $(b).attr("data-id");return (vA < vB) ? -1 : (vA > vB) ? 1 : 0;});
+                $("#app").append(items);
             });
         });
 
@@ -81,6 +83,7 @@
                 barcodeDetector.detect(bitmap).then(barcodes => {
                     if(barcodes.length > 0) {
                         let value = barcodes[0].rawValue;
+                        console.log(value);
                         if(!isNaN(value)) {
                             if(clotheInfo(value)){
                                 localStream.getTracks().forEach((track) => {track.stop();});
@@ -98,9 +101,9 @@
         }
         
         // Modals functions
-        async function clotheInfo(id){
-            $("#clothInfoModal").fadeIn();
-            if($(`[data-id=${id}]`).length >0){
+        function clotheInfo(id){
+            if($(`[data-id=${id}]`).length > 0){
+                $("#clothInfoModal").fadeIn();
                 let data = $($(`[data-id=${id}]`)[0]);
                 let inBox = data.attr("data-inBox") == "null" ? "":`<div class="flex flex-row gap-2"><b>Dans la boite :</b><button onclick="boxInfos('${data.attr("data-inBox")}')">${data.attr("data-inBox")}</button></div>`;
                 $("#clothInfoModalBody").empty();
