@@ -19,8 +19,28 @@ app.post('/createClothe', (req, res) => {
     let vetements = JSON.parse(fs.readFileSync("../public/vetements.json", "utf-8"));
     let id = Math.max(...vetements.map(e => e.id))+1;
     vetements.push({id:id,nom:nom, type:type, couleur:couleur, saison:saison, marque:marque, deOutfitNo:deOutfitNo, img:img, inBox:null});
-    fs.writeFileSync("../vetements.json", JSON.stringify(vetements));
+    fs.writeFileSync("../public/vetements.json", JSON.stringify(vetements));
     res.status(200).send(vetements);
+});
+
+app.post("/transfer", (req, res) => {
+    let clotheToPutIn = req.body.clotheToPutIn;
+    let boxToPutIn = req.body.boxToPutIn;
+    if(clotheToPutIn && boxToPutIn){
+        let vetements = JSON.parse(fs.readFileSync("../public/vetements.json", "utf-8"));
+        vetements.find(cloth => cloth.id ==parseInt(clotheToPutIn)).inBox = parseInt(boxToPutIn);
+        fs.writeFileSync("../public/vetements.json", JSON.stringify(vetements));
+        res.send({status:200, data:vetements});
+    }else res.send({status:400, error:"Please provide all arguments"});
+});
+app.post("/pullClothe", (req, res) => {
+    let clotheToGetOut = req.body.clotheToGetOut;
+    if(clotheToGetOut){
+        let vetements = JSON.parse(fs.readFileSync("../public/vetements.json", "utf-8"));
+        vetements.find(cloth => cloth.id ==parseInt(clotheToGetOut)).inBox = null;
+        fs.writeFileSync("../public/vetements.json", JSON.stringify(vetements));
+        res.send({status:200, data:vetements});
+    }else res.send({status:400, error:"Please provide all arguments"});
 });
 
 app.listen(8000 || process.env.PORT, () => {
