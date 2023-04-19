@@ -194,7 +194,7 @@
 
         $("#sortirClotheButton").click(() => {
             let clotheToGetOut = parseInt($("#clotheToGetOut").attr("data-clothid")) || false;
-            if(clotheToPutIn && boxToPutIn){
+            if(clotheToGetOut){
                 $.post(`${window.location.origin}:8000/pullClothe`, {clotheToGetOut:clotheToGetOut}, (data) => {
                     if(data.status == 200){
                         $("#sortirClotheModal, #putClotheModal").fadeOut();
