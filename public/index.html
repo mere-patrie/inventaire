@@ -45,10 +45,11 @@
     <!-- New clothe modal -->
     <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="newClotheModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-gray-600" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/></svg></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full"><h3 class="text-base font-semibold leading-6 text-black mb-2">Nouveau vêtement</h3><form class="flex flex-col gap-2"><div class="relative"><input type="text" id="newClotheNom" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheNom" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Nom</label></div><select id="newClotheType" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 focus-visible:outline-none"><option selected disabled>Type</option><option value="pull">Pull</option><option value="t-shirt">T-shirt</option><option value="jean">Jean</option><option value="pantalon">Pantalon</option></select><select id="newClotheCouleur" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 focus-visible:outline-none"><option selected disabled>Couleur</option><option value="Blanc">Blanc</option><option value="bleu">Bleu</option><option value="beige">Beige</option><option value="noir">Noir</option><option value="gris">Gris</option><option value="jaune">Jaune</option><option value="rose">Rose</option><option value="rouge">Rouge</option><option value="vert">Vert</option><option value="violet">Violet</option></select><select id="newClotheSaison" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5 focus-visible:outline-none"><option selected disabled>Saison</option><option value="printemps">Printemps</option><option value="été">Été</option><option value="automne">Automne</option><option value="hiver">Hiver</option></select><div class="relative"><input type="text" id="newClotheMarque" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheMarque" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Marque</label></div><div class="relative"><input type="text" id="newClotheFromOutfitNo" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheFromOutfitNo" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">De l'outfit</label></div><div class="relative"><input type="text" id="newClotheImg" class="block px-2.5 pb-2.5 pr-12 pt-4 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-indigo-600 peer invalid:border-red-500" placeholder=" " autocomplete="off"/><label for="newClotheImg" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-indigo-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Image URL</label></div></form></div></div><div class="flex py-3 sm:flex flex-col sm:flex-row-reverse gap-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="createNewClothe">Créer</button><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#newClotheModal').fadeOut();">Annuler</button></div></div></div></div></div></div>
 
-    <!-- Transfer clothe box modal -->
-    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="putClotheModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-gray-600" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/></svg></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full"><h3 class="text-base font-semibold leading-6 text-black mb-2">Mettre</h3><div id="mettreModalForm" class="flex flex-col gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="clotheToPutIn">Vêtement à transférer</button><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="boxToPutIn">Boite réceptrice</button></div></div></div><div class="flex py-3 sm:flex flex-col sm:flex-row-reverse gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Transférer</button><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#putClotheModal').fadeOut();">Annuler</button></div></div></div></div></div></div>
+    <!-- Put clothe box modal -->
+    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="putClotheModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-gray-600" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/></svg></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full"><h3 class="text-base font-semibold leading-6 text-black mb-2">Mettre</h3><div id="mettreModalForm" class="flex flex-col gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="clotheToPutIn">Vêtement à transférer</button><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="boxToPutIn">Boite réceptrice</button></div></div></div><div class="flex py-3 sm:flex flex-col sm:flex-row-reverse gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="putClotheButton">Transférer</button><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#putClotheModal').fadeOut();">Annuler</button></div></div></div></div></div></div>
 
-    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="sortirClotheModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-gray-600" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/></svg></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full"><h3 class="text-base font-semibold leading-6 text-black mb-2">Sortir</h3><div id="sortirModalForm" class="flex flex-col gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="clotheToGetOut">Vêtement à sortir</button></div></div></div><div class="flex py-3 sm:flex flex-col sm:flex-row-reverse gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >Transférer</button><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#sortirClotheModal').fadeOut();">Annuler</button></div></div></div></div></div></div>
+    <!-- Sortir clothe modal -->
+    <div class="hidden absolute top-0 left-0 z-50" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="sortirClotheModal"><div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div><div class="fixed inset-0 z-10 overflow-y-auto"><div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"><div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 max-w-lg w-full"><div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4"><div class="sm:flex sm:items-start"><div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 sm:mx-0 sm:h-10 sm:w-10"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="h-6 w-6 text-gray-600" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/></svg></div><div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full"><h3 class="text-base font-semibold leading-6 text-black mb-2">Sortir</h3><div id="sortirModalForm" class="flex flex-col gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="clotheToGetOut">Vêtement à sortir</button></div></div></div><div class="flex py-3 sm:flex flex-col sm:flex-row-reverse gap-2 mt-2"><button class="bg-indigo-600 inline-flex w-full sm:w-auto justify-center rounded-md px-3 py-2 text-sm text-white shadow-sm font-semibold hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="sortirClotheButton">Transférer</button><button type="button" class="inline-flex w-full justify-center rounded-md px-3 py-2 text-sm shadow-sm font-semibold text-black ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:w-auto bg-white" onclick="$('#sortirClotheModal').fadeOut();">Annuler</button></div></div></div></div></div></div>
 
     <script>
         // At page load
@@ -63,7 +64,7 @@
         $("#searchInput").keydown(() => {
             let searchQuery = $("#searchInput").val();
             $("#vetements").children().each(function(vetement) {
-                if($(this).attr("data-id").includes(searchQuery) || $(this).attr("data-deOutfitNo").includes(searchQuery) || $(this).attr("data-nom").includes(searchQuery) || $(this).attr("data-couleur").includes(searchQuery) || $(this).attr("data-saison").includes(searchQuery) || $(this).attr("data-marque").includes(searchQuery) || $(this).attr("data-type").includes(searchQuery) || $(this).attr("data-inBox").includes(searchQuery)) $(this).removeClass("hidden"); else $(this).addClass("hidden");
+                if($(this).attr("data-id").includes(searchQuery) || $(this).attr("data-deOutfitNo").includes(searchQuery) || $(this).attr("data-nom").includes(searchQuery) || $(this).attr("data-couleur").includes(searchQuery) || $(this).attr("data-saison").includes(searchQuery) || $(this).attr("data-marque").includes(searchQuery) || $(this).attr("data-type").includes(searchQuery) || $(this).attr("data-inBox").includes(searchQuery))$(this).removeClass("hidden");else $(this).addClass("hidden");
             });
         });
         
@@ -91,26 +92,36 @@
                     if(barcodes.length > 0) {
                         let value = barcodes[0].rawValue;
                         if(!isNaN(value)) {
-                            if(action == "transfer"){
+                            if(action == "mettre"){
                                 localStream.getTracks().forEach((track) => {track.stop();});
                                 $('#scanModal').fadeOut();
-                                $("#transferModal").fadeIn();
+                                $("#putClotheModal").fadeIn();
                                 if($("#sortirModalForm").hasClass("hidden")){
                                     $("#clotheToPutIn").attr("data-clothId", value);
                                 }else{
                                     $("#clotheToGetOut").attr("data-clothId", value)
                                 }
-                            }else{
-                                if(clotheInfo(value)){
-                                    localStream.getTracks().forEach((track) => {track.stop();});
-                                    $('#scanModal').fadeOut();
+                            }else if(action == "sortir"){
+                                localStream.getTracks().forEach((track) => {track.stop();});
+                                $('#scanModal').fadeOut();
+                                $("#sortirClotheModal").fadeIn();
+                                if($("#sortirModalForm").hasClass("hidden")){
+                                    $("#clotheToPutIn").attr("data-clothId", value);
+                                }else{
+                                    $("#clotheToGetOut").attr("data-clothId", value)
                                 }
+                            }else if(clotheInfo(value)){
+                                localStream.getTracks().forEach((track) => {track.stop();});
+                                $('#scanModal').fadeOut();
                             }
                         }else if(value.includes("box:")){
                             localStream.getTracks().forEach((track) => {track.stop();});
                             $('#scanModal').fadeOut();
-                            if(action == "transfer"){
-                                $("#transferModal").fadeIn();
+                            if(action == "mettre"){
+                                $("#putClotheModal").fadeIn();
+                                $("#boxToPutIn").attr("data-boxId", value.split("box:").pop());
+                            }else if(action == "sortir"){
+                                $("#sortirClotheModal").fadeIn();
                                 $("#boxToPutIn").attr("data-boxId", value.split("box:").pop());
                             }else{
                                 boxInfos(value.split("box:").pop());$('#scanModal').fadeOut();
@@ -138,7 +149,7 @@
             $("#clothInfoModalBody").empty();
             $("#clothInfoModal").fadeIn();
             $("#vetements").children().each(function() {
-                if($(this).attr("data-deOutfitNo").includes(id)) {
+                if($(this).attr("data-deOutfitNo") == id) {
                     let data = $($(this)[0]);
                     $("#clothInfoModalBody").append(`<div class="flex flex-col h-full rounded border border-gray-300"><img src="${$(this).children()[0].src}" class="h-auto max-h-auto w-auto"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><button onclick="clotheInfo(${data.attr("data-id")})">${data.attr("data-id")}</button></div><div class="flex flex-row gap-2"><b>De l'outfit :</b><button onclick="outfitInfo('${data.attr("data-deOutfitNo")}')">${data.attr("data-deOutfitNo")}</button></div><div class="flex flex-row gap-2"><b>Nom :</b><h1>${data.attr("data-nom")}</h1></div><div class="flex flex-row gap-2"><b>Couleur :</b><h1>${data.attr("data-couleur")}</h1></div><div class="flex flex-row gap-2"><b>Marque :</b><h1>${data.attr("data-marque")}</h1></div><div class="flex flex-row gap-2"><b>Saison :</b><h1>${data.attr("data-saison")}</h1></div><div class="flex flex-row gap-2"><b>Type :</b><h1>${data.attr("data-type")}</h1></div></div></div>`);
                 }
@@ -150,7 +161,7 @@
             $("#clothInfoModalBody").append(`<h1 class="text-2xl font-semibold leading-6 text-black">Vêtements dans la boite <b>${id}</b></h1>`);
             if($(`[data-id=${id}]`).length >0){
                 $("#vetements").children().each(function() {
-                    if($(this).attr("data-inBox").includes(id)) {
+                    if($(this).attr("data-inBox") == id) {
                         let data = $($(this)[0]);
                         $("#clothInfoModalBody").append(`<div class="flex flex-col h-full rounded border border-gray-300"><img src="${$(this).children()[0].src}" class="h-auto max-h-auto w-auto"><div class="p-2 flex flex-col gap-2"><div class="flex flex-row gap-2"><b>ID :</b><button onclick="clotheInfo(${data.attr("data-id")})">${data.attr("data-id")}</button></div><div class="flex flex-row gap-2"><b>De l'outfit :</b><button onclick="outfitInfo('${data.attr("data-deOutfitNo")}')">${data.attr("data-deOutfitNo")}</button></div><div class="flex flex-row gap-2"><b>Nom :</b><h1>${data.attr("data-nom")}</h1></div><div class="flex flex-row gap-2"><b>Couleur :</b><h1>${data.attr("data-couleur")}</h1></div><div class="flex flex-row gap-2"><b>Marque :</b><h1>${data.attr("data-marque")}</h1></div><div class="flex flex-row gap-2"><b>Saison :</b><h1>${data.attr("data-saison")}</h1></div><div class="flex flex-row gap-2"><b>Type :</b><h1>${data.attr("data-type")}</h1></div></div></div>`);
                     }
@@ -176,38 +187,37 @@
         });
 
 
-        $("#clotheToPutIn").click(() => {$("#transferModal").fadeOut();startScanning("transfer");});
-        $("#boxToPutIn").click(() => {$("#transferModal").fadeOut();startScanning("transfer");});
-        $("#clotheToGetOut").click(() => {$("#transferModal").fadeOut();startScanning("transfer");});
+        $("#clotheToPutIn").click(() => {$("#sortirClotheModal, #putClotheModal").fadeOut();startScanning("mettre");});
+        $("#boxToPutIn").click(() => {$("#sortirClotheModal, #putClotheModal").fadeOut();startScanning("mettre");});
+        $("#clotheToGetOut").click(() => {$("#sortirClotheModal, #putClotheModal").fadeOut();startScanning("sortir");});
 
 
-        $("#transferClotheButton").click(() => {
-            if($("#sortirModalForm").hasClass("hidden")){
-                let clotheToPutIn = parseInt($("#clotheToPutIn").attr("data-clothid")) || false;
-                let boxToPutIn = parseInt($("#boxToPutIn").attr("data-boxid")) || false;
-                if(clotheToPutIn && boxToPutIn){
-                    $.post(`${window.location.origin}:8000/transfer`, {clotheToPutIn:clotheToPutIn,boxToPutIn:boxToPutIn}, (data) => {
-                        if(data.status == 200){
-                            $("#transferModal").fadeOut();
-                            $("#clotheToPutIn").removeAttr("data-clothid");
-                            $("#boxToPutIn").removeAttr("data-boxid");
-                            home();
-                        }
-                    });
-                }
-            }else{
-                let clotheToGetOut = parseInt($("#clotheToGetOut").attr("data-clothid")) || false;
-                if(clotheToPutIn && boxToPutIn){
-                    $.post(`${window.location.origin}:8000/pullClothe`, {clotheToGetOut:clotheToGetOut}, (data) => {
-                        if(data.status == 200){
-                            $("#transferModal").fadeOut();
-                            $("#clotheToGetOut").removeAttr("data-clothid");
-                            home();
-                        }
-                    });
-                }
+        $("#sortirClotheButton").click(() => {
+            let clotheToGetOut = parseInt($("#clotheToGetOut").attr("data-clothid")) || false;
+            if(clotheToPutIn && boxToPutIn){
+                $.post(`${window.location.origin}:8000/pullClothe`, {clotheToGetOut:clotheToGetOut}, (data) => {
+                    if(data.status == 200){
+                        $("#sortirClotheModal, #putClotheModal").fadeOut();
+                        $("#clotheToGetOut").removeAttr("data-clothid");
+                        home();
+                    }
+                });
             }
-        })
+        });
+        $("#putClotheButton").click(() => {
+            let clotheToPutIn = parseInt($("#clotheToPutIn").attr("data-clothid")) || false;
+            let boxToPutIn = parseInt($("#boxToPutIn").attr("data-boxid")) || false;
+            if(clotheToPutIn && boxToPutIn){
+                $.post(`${window.location.origin}:8000/transfer`, {clotheToPutIn:clotheToPutIn,boxToPutIn:boxToPutIn}, (data) => {
+                    if(data.status == 200){
+                        $("#sortirClotheModal, #putClotheModal").fadeOut();
+                        $("#clotheToPutIn").removeAttr("data-clothid");
+                        $("#boxToPutIn").removeAttr("data-boxid");
+                        home();
+                    }
+                });
+            }
+        });
 
         function home(){
             fetch(window.location+"vetements.json").then((response) => response.json()).then((data) => {
