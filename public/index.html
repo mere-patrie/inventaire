@@ -96,20 +96,12 @@
                                 localStream.getTracks().forEach((track) => {track.stop();});
                                 $('#scanModal').fadeOut();
                                 $("#putClotheModal").fadeIn();
-                                if($("#sortirModalForm").hasClass("hidden")){
-                                    $("#clotheToPutIn").attr("data-clothid", value);
-                                }else{
-                                    $("#clotheToGetOut").attr("data-clothid", value)
-                                }
+                                $("#clotheToPutIn").attr("data-clothid", value);
                             }else if(action == "sortir"){
                                 localStream.getTracks().forEach((track) => {track.stop();});
                                 $('#scanModal').fadeOut();
                                 $("#sortirClotheModal").fadeIn();
-                                if($("#sortirModalForm").hasClass("hidden")){
-                                    $("#clotheToPutIn").attr("data-clothid", value);
-                                }else{
-                                    $("#clotheToGetOut").attr("data-clothid", value)
-                                }
+                                $("#clotheToGetOut").attr("data-clothid", value)
                             }else if(clotheInfo(value)){
                                 localStream.getTracks().forEach((track) => {track.stop();});
                                 $('#scanModal').fadeOut();
