@@ -97,18 +97,18 @@
                                 $('#scanModal').fadeOut();
                                 $("#putClotheModal").fadeIn();
                                 if($("#sortirModalForm").hasClass("hidden")){
-                                    $("#clotheToPutIn").attr("data-clothId", value);
+                                    $("#clotheToPutIn").attr("data-clothid", value);
                                 }else{
-                                    $("#clotheToGetOut").attr("data-clothId", value)
+                                    $("#clotheToGetOut").attr("data-clothid", value)
                                 }
                             }else if(action == "sortir"){
                                 localStream.getTracks().forEach((track) => {track.stop();});
                                 $('#scanModal').fadeOut();
                                 $("#sortirClotheModal").fadeIn();
                                 if($("#sortirModalForm").hasClass("hidden")){
-                                    $("#clotheToPutIn").attr("data-clothId", value);
+                                    $("#clotheToPutIn").attr("data-clothid", value);
                                 }else{
-                                    $("#clotheToGetOut").attr("data-clothId", value)
+                                    $("#clotheToGetOut").attr("data-clothid", value)
                                 }
                             }else if(clotheInfo(value)){
                                 localStream.getTracks().forEach((track) => {track.stop();});
@@ -119,10 +119,10 @@
                             $('#scanModal').fadeOut();
                             if(action == "mettre"){
                                 $("#putClotheModal").fadeIn();
-                                $("#boxToPutIn").attr("data-boxId", value.split("box:").pop());
+                                $("#boxToPutIn").attr("data-boxid", value.split("box:").pop());
                             }else if(action == "sortir"){
                                 $("#sortirClotheModal").fadeIn();
-                                $("#boxToPutIn").attr("data-boxId", value.split("box:").pop());
+                                $("#boxToPutIn").attr("data-boxid", value.split("box:").pop());
                             }else{
                                 boxInfos(value.split("box:").pop());$('#scanModal').fadeOut();
                             }
