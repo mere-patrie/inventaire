@@ -27,7 +27,6 @@ app.post("/transfer", (req, res) => {
     let clotheToPutIn = req.body.clotheToPutIn;
     let boxToPutIn = req.body.boxToPutIn;
     if(clotheToPutIn && boxToPutIn){
-        console.log(clotheToPutIn, boxToPutIn);
         let vetements = JSON.parse(fs.readFileSync("../public/vetements.json", "utf-8"));
         vetements.find(cloth => cloth.id ==parseInt(clotheToPutIn)).inBox = parseInt(boxToPutIn);
         fs.writeFileSync("../public/vetements.json", JSON.stringify(vetements));
